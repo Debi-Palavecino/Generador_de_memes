@@ -15,15 +15,15 @@ const inputUrl = document.querySelector("#url");
 const backgroundColor = document.querySelector("#backgroundColor");
 const backgroundColorNumber = document.querySelector(".backgroundColorNumber");
 const backgroundOptions = document.querySelector("#backgroundOptions");
-const brightness = document.querySelector("#brightness");
-const opacity = document.querySelector("#opacity");
-const contrast = document.querySelector("#contrast");
-const blur_ = document.querySelector("#blur");
-const grayscale = document.querySelector("#grayscale");
-const sepia = document.querySelector("#sepia");
-const hue = document.querySelector("#hue");
-const saturation = document.querySelector("#saturation");
-const negative = document.querySelector("#negative");
+const brillos = document.querySelector("#brightness");
+const opacidades = document.querySelector("#opacity");
+const contrastes = document.querySelector("#contrast");
+const desenfoque = document.querySelector("#blur");
+const enGris = document.querySelector("#grayscale");
+const sepiaScale = document.querySelector("#sepia");
+const difuminar = document.querySelector("#hue");
+const saturacion = document.querySelector("#saturation");
+const negativos = document.querySelector("#negative");
 const resetFilters = document.querySelector(".resetFilters");
 const topText = document.querySelector(".topText");
 const bottomText = document.querySelector(".bottomText");
@@ -126,23 +126,28 @@ backgroundOptions.addEventListener("change", () => {
 });
 
 // Filtros
-const actualizarFiltros = ()=>{
-    divImg.style.filter = `brightness(${brightness.value}) 
-    opacity(${opacity.value}) contrast(${contrast.value}%) 
-    blur(${blur_.value}px) grayscale(${grayscale.value}%) 
-    sepia(${sepia.value}%) hue-rotate(${hue.value}deg) 
-    saturate(${saturation.value}%) invert(${negative.value})`;
+const filtrosDeImagen= ()=>{
+    imageEdit.style.filter= `brightness(${ brillos.value })
+        opacity(${opacidades.value})
+        contrast(${contrastes.value}%)
+        blur(${desenfoque.value}px)
+        grayScale(${enGris.value}%)
+        sepia(${sepiaScale.value}%)
+        saturate(${saturacion.value}%)
+        invert(${negativos.value})
+        hue-rotate(${difuminar.value})
+        `; 
+        
 }
-brightness.addEventListener("change", actualizarFiltros);
-opacity.addEventListener("change", actualizarFiltros);
-contrast.addEventListener("change", actualizarFiltros);
-blur_.addEventListener("change", actualizarFiltros);
-grayscale.addEventListener("change", actualizarFiltros);
-sepia.addEventListener("change", actualizarFiltros);
-hue.addEventListener("change", actualizarFiltros);
-saturation.addEventListener("change", actualizarFiltros);
-negative.addEventListener("change", actualizarFiltros);
-
+brillos.addEventListener("change",filtrosDeImagen);
+opacidades.addEventListener("change",filtrosDeImagen);
+contrastes.addEventListener("change",filtrosDeImagen);
+desenfoque.addEventListener("change",filtrosDeImagen);
+enGris.addEventListener("change",filtrosDeImagen);
+sepiaScale.addEventListener("change",filtrosDeImagen);
+difuminar.addEventListener("change",filtrosDeImagen);
+saturacion.addEventListener("change",filtrosDeImagen);
+negativos.addEventListener("change",filtrosDeImagen);
 // Reestablecer filtros
 
 const inicializarFiltros = ()=>{
